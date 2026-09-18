@@ -1,0 +1,237 @@
+/* 🌌 MindTech Insights — Cosmic Glassmorphism UI Theme System */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+root {
+    --bg-dark: #030712;
+    --card-glass: rgba(11, 16, 29, 0.70);
+    --card-border: rgba(0, 242, 254, 0.25);
+    --card-border-glow: rgba(0, 242, 254, 0.70);
+    --cyan-primary: #00F2FE;
+    --blue-glow: #4FACFE;
+    --text-bright: #F0F6FC;
+    --text-dim: #8B949E;
+}
+
+/* Global Page Background with Cosmic Nebula Gradient */
+html, body, [class*="css"] {
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #F0F6FC;
+}
+
+.stApp {
+    background: 
+        radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(79, 172, 254, 0.10) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(127, 0, 255, 0.06) 0%, transparent 60%),
+        #030712 !important;
+    background-attachment: fixed !important;
+}
+
+/* Hide default top Streamlit padding & header decorations */
+header[data-testid="stHeader"] {
+    background: transparent !important;
+}
+
+/* ========================================================= */
+/* 📱 SIDEBAR NAVIGATION BAR STYLING */
+/* ========================================================= */
+section[data-testid="stSidebar"] {
+    background: rgba(7, 12, 26, 0.85) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-right: 1px solid rgba(0, 242, 254, 0.2) !important;
+    box-shadow: 5px 0 25px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Sidebar Navigation Items */
+div[data-testid="stSidebarNav"] {
+    padding-top: 10px;
+}
+
+div[data-testid="stSidebarNav"] ul {
+    gap: 6px;
+}
+
+div[data-testid="stSidebarNav"] li a {
+    background: rgba(16, 22, 38, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-radius: 10px !important;
+    padding: 10px 14px !important;
+    color: #C9D1D9 !important;
+    font-weight: 500 !important;
+    font-size: 0.92rem !important;
+    transition: all 0.25s ease-in-out !important;
+}
+
+div[data-testid="stSidebarNav"] li a:hover {
+    background: rgba(0, 242, 254, 0.12) !important;
+    border-color: rgba(0, 242, 254, 0.5) !important;
+    color: #00F2FE !important;
+    transform: translateX(4px) !important;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.2) !important;
+}
+
+/* Active Navigation Item */
+div[data-testid="stSidebarNav"] li a[aria-current="page"] {
+    background: linear-gradient(135deg, rgba(0, 242, 254, 0.25) 0%, rgba(79, 172, 254, 0.15) 100%) !important;
+    border: 1px solid #00F2FE !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.35), inset 0 0 10px rgba(0, 242, 254, 0.2) !important;
+}
+
+/* ========================================================= */
+/* 💎 COSMIC GLASSMORPHISM KPI & METRIC CARDS */
+/* ========================================================= */
+.kpi-card {
+    background: rgba(11, 16, 29, 0.70);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    border-radius: 16px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(0, 242, 254, 0.08);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #00F2FE 0%, #4FACFE 50%, #7F00FF 100%);
+}
+
+.kpi-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    border-color: rgba(0, 242, 254, 0.8);
+    box-shadow: 0 12px 35px rgba(0, 242, 254, 0.3), inset 0 0 20px rgba(0, 242, 254, 0.15);
+}
+
+.kpi-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #8B949E;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+}
+
+.kpi-value {
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #FFFFFF 0%, #00F2FE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.kpi-subtitle {
+    font-size: 0.82rem;
+    color: #00E676;
+    margin-top: 6px;
+    font-weight: 600;
+}
+
+/* ========================================================= */
+/* 💡 INSIGHT & RECOMMENDATION CARDS */
+/* ========================================================= */
+.insight-card {
+    background: rgba(11, 16, 29, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    border-left: 5px solid #00F2FE;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 16px 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: all 0.25s ease;
+}
+
+.insight-card:hover {
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.25);
+    transform: translateY(-2px);
+}
+
+.insight-card.warning { border-left-color: #FFD600; }
+.insight-card.danger { border-left-color: #FF5252; }
+.insight-card.success { border-left-color: #00E676; }
+
+.insight-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #F0F6FC;
+    margin-bottom: 8px;
+}
+
+.insight-body {
+    font-size: 0.92rem;
+    color: #C9D1D9;
+    line-height: 1.55;
+}
+
+/* Responsible Use Disclaimer Banner */
+.responsible-banner {
+    background: rgba(11, 16, 29, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    color: #8B949E;
+    margin-top: 24px;
+}
+
+/* ========================================================= */
+/* 📈 PLOTLY CONTAINER & STREAMLIT UI INPUT CONTROLS */
+/* ========================================================= */
+.stPlotlyChart {
+    background: rgba(11, 16, 29, 0.65) !important;
+    backdrop-filter: blur(12px) !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(0, 242, 254, 0.25) !important;
+    padding: 12px !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+    transition: border-color 0.3s ease !important;
+}
+
+.stPlotlyChart:hover {
+    border-color: rgba(0, 242, 254, 0.6) !important;
+}
+
+/* Multiselect & Selectbox Dropdowns */
+div[data-baseweb="select"] > div {
+    background-color: rgba(16, 22, 38, 0.8) !important;
+    border: 1px solid rgba(0, 242, 254, 0.3) !important;
+    border-radius: 10px !important;
+    color: #F0F6FC !important;
+}
+
+div[data-baseweb="select"] > div:hover {
+    border-color: #00F2FE !important;
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.3) !important;
+}
+
+/* Buttons */
+.stButton>button {
+    background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%) !important;
+    color: #030712 !important;
+    font-weight: 700 !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 10px 24px !important;
+    letter-spacing: 0.02em !important;
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4) !important;
+    transition: all 0.25s ease !important;
+}
+
+.stButton>button:hover {
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.75) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+}
